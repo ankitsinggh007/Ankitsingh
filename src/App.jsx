@@ -1,10 +1,8 @@
 import './App.css'
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import { FacebookShareButton, TwitterShareButton, WhatsappShareButton } from 'react-share';
 
-
-
-function App() {
+const App = () => {
   const [imageUrl, setImageUrl] = useState('');
 
   useEffect(() => {
@@ -24,23 +22,21 @@ function App() {
 
   return (
     <div>
+      <Helmet>
+        <meta property="og:image" content={imageUrl} /> {/* Set the image URL as the og:image */}
+      </Helmet>
       <img src={imageUrl} alt="Random Image" style={{ display: 'block', margin: '0 auto' }} />
-      <div style={{display:'flex',justifyContent:"space-evenly"}}>
+      <div>
         <FacebookShareButton url={shareUrl}>
-          Facebook
+          Share on Facebook
         </FacebookShareButton>
         <TwitterShareButton url={shareUrl}>
-          Twitter
+          Share on Twitter
         </TwitterShareButton>
         <WhatsappShareButton url={shareUrl}>
-          WhatsApp
+          Share on WhatsApp
         </WhatsappShareButton>
       </div>
     </div>
   );
 };
-
-export default App;
-
-
-
