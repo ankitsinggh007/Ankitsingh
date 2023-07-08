@@ -1,5 +1,7 @@
 import './App.css'
 import  { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
+
 import { FacebookShareButton, TwitterShareButton, WhatsappShareButton } from 'react-share';
 
 const App = () => {
@@ -26,17 +28,19 @@ const App = () => {
         <meta property="og:image" content={imageUrl} /> {/* Set the image URL as the og:image */}
       </Helmet>
       <img src={imageUrl} alt="Random Image" style={{ display: 'block', margin: '0 auto' }} />
-      <div>
+      <div style={{display:"flex",justifyContent:"space-evenly"}}>
         <FacebookShareButton url={shareUrl}>
-          Share on Facebook
+          Facebook
         </FacebookShareButton>
         <TwitterShareButton url={shareUrl}>
-          Share on Twitter
+          Twitter
         </TwitterShareButton>
         <WhatsappShareButton url={shareUrl}>
-          Share on WhatsApp
+          WhatsApp
         </WhatsappShareButton>
       </div>
     </div>
   );
 };
+
+export default App;
