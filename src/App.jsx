@@ -15,6 +15,7 @@ const App = () => {
   const fetchRandomImage = async () => {
     try {
       const response = await fetch('https://picsum.photos/500'); // Fetch a random image from picsum.photos
+      console.log(response,"response")
       console.log(response);
       
       setImageUrl(response.url);
@@ -28,7 +29,9 @@ const App = () => {
   return (
     <div>
       <Helmet>
-      <meta property="og:image" content={`${imageUrl}?${Date.now()}`} />{/* Set the image URL as the og:image */}
+      <meta property="og:image" content={imageUrl} />
+      {console.log("in meta tag ",imageUrl,)}
+      {/* Set the image URL as the og:image */}
       </Helmet>
       <img src={imageUrl} alt="Random Image" style={{ display: 'block', margin: '0 auto' }} />
       <div style={{display:"flex",justifyContent:"space-evenly"}}>
