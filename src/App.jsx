@@ -29,7 +29,7 @@ const App = () => {
   return (
     <div>
       <Helmet>
-      <meta property="og:image" content={"https://th.bing.com/th/id/OIP.sHysowLcZoNZlaD1mnsRdwAAAA?pid=ImgDet&rs=1"} />
+      <meta property="og:image" content={https://th.bing.com/th/id/OIP.sHysowLcZoNZlaD1mnsRdwAAAA?pid=ImgDet&rs=1} />
       {console.log("in meta tag ",imageUrl,)}
       {/* Set the image URL as the og:image */}
       </Helmet>
