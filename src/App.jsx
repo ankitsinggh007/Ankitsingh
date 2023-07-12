@@ -6,6 +6,7 @@ import { FacebookShareButton, TwitterShareButton, WhatsappShareButton } from 're
 
 const App = () => {
   const [imageUrl, setImageUrl] = useState('');
+  const [image, setImage] = useState('');
 
   useEffect(() => {
     fetchRandomImage();
@@ -14,6 +15,8 @@ const App = () => {
   const fetchRandomImage = async () => {
     try {
       const response = await fetch('https://picsum.photos/500'); // Fetch a random image from picsum.photos
+      console.log(response);
+      
       setImageUrl(response.url);
     } catch (error) {
       console.error('Error fetching random image:', error);
@@ -25,7 +28,7 @@ const App = () => {
   return (
     <div>
       <Helmet>
-        <meta property="og:image" content={imageUrl} /> {/* Set the image URL as the og:image */}
+      <meta property="og:image" content={`${imageUrl}?${Date.now()}`} />{/* Set the image URL as the og:image */}
       </Helmet>
       <img src={imageUrl} alt="Random Image" style={{ display: 'block', margin: '0 auto' }} />
       <div style={{display:"flex",justifyContent:"space-evenly"}}>
